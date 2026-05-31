@@ -43,12 +43,22 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           <motion.div variants={staggerItem} className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6 touch-target flex items-center">
-              <OptimizedImage
-                src="/SELLEROOTLOGO_copytp.png"
-                alt="Selleroot Logo"
-                className="h-16 w-auto bg-transparent object-contain"
-              />
+            <Link to="/" className="inline-block mb-6 touch-target flex items-center gap-2">
+              <svg
+                className="h-14 w-auto"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Blue Dollar Sign (inverted for white on dark) */}
+                <text x="40" y="55" fontSize="60" fontWeight="bold" textAnchor="middle" fill="white" fontFamily="system-ui, -apple-system, sans-serif">$</text>
+
+                {/* Green Growth Arrow */}
+                <g transform="translate(50, 25)">
+                  <path d="M0 15 L15 0 L15 8 L25 8 L25 10 L15 10 L15 18 Z" fill="#10B94D" />
+                </g>
+              </svg>
+              <span className="font-bold text-lg leading-none text-white">Selleroot</span>
             </Link>
             <p className="text-primary-foreground/70 leading-relaxed text-sm mb-6 pr-4">
               Professional marketplace consulting for Amazon and Walmart sellers. We help sellers navigate account recovery, compliance challenges, and marketplace growth with transparency and expertise.
