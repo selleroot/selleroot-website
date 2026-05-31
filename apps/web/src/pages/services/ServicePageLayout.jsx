@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Accordion } from '@/components/ui/accordion';
-import { CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
+import { CircleCheck as CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useSchema } from '@/hooks/useSchema.js';
 import FAQItem from '@/components/FAQItem.jsx';
 import CalendlyButton from '@/components/CalendlyButton.jsx';
@@ -22,7 +22,7 @@ const ServicePageLayout = ({
 }) => {
   const { getServiceSchema } = useSchema();
   const whatsappMessage = encodeURIComponent(`Hi Selleroot, I need help with ${title}.`);
-  const whatsappLink = `https://wa.me/1234567890?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/918178121217?text=${whatsappMessage}`;
 
   return (
     <>

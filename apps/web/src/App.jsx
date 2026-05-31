@@ -31,7 +31,6 @@ const WalmartSuspensionAppealsPage = lazy(() => import('./pages/services/Walmart
 
 // Lazy load other pages
 const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
-const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
 const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage.jsx'));
 const TermsPage = lazy(() => import('./pages/legal/TermsPage.jsx'));
 const CookiePolicyPage = lazy(() => import('./pages/legal/CookiePolicyPage.jsx'));
@@ -78,7 +77,6 @@ const App = () => {
               <Route path="/services/walmart-performance-review" element={<WalmartSuspensionAppealsPage />} />
 
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/blog" element={<BlogPage />} />
 
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsPage />} />

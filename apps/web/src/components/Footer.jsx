@@ -1,36 +1,35 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, Notebook as Facebook, Drama as Instagram, MapPin, MessageCircle, Calendar, CircleAlert as AlertCircle } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animationVariants.js';
-import OptimizedImage from './OptimizedImage.jsx';
-import CalendlyButton from './CalendlyButton.jsx';
 import { trackWhatsAppClick } from '@/lib/performanceMonitoring.js';
+import { Button } from '@/components/ui/button';
 
 const Footer = () => {
-  const whatsappLink = `https://wa.me/918178121217?text=${encodeURIComponent('Hi Selleroot, I need help.')}`;
+  const whatsappLink = `https://wa.me/918178121217?text=${encodeURIComponent('Hi Selleroot, I would like to book a free account audit.')}`;
 
-  const amazonServices = [
-    { name: 'Account Reinstatement', path: '/services/amazon-account-reinstatement' },
-    { name: 'Section 3 Appeals', path: '/services/section-3-appeals' },
-    { name: 'Video Verification Support', path: '/services/video-verification' },
-    { name: 'Funds Release', path: '/services/funds-release' },
-    { name: 'Compliance Documentation', path: '/services/compliance-documentation' },
-    { name: 'Account Health Reviews', path: '/services/account-health' },
-  ];
+  // Facebook SVG Icon
+  const FacebookIcon = () => (
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+  );
 
-  const walmartServices = [
-    { name: 'Account Reinstatement', path: '/services/walmart-account-reinstatement' },
-    { name: 'Suspension Appeals', path: '/services/walmart-suspension-appeals' },
-  ];
+  // Instagram SVG Icon
+  const InstagramIcon = () => (
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 11.965c0 3.032-2.467 5.499-5.499 5.499-3.032 0-5.499-2.467-5.499-5.499 0-3.032 2.467-5.499 5.499-5.499 3.032 0 5.499 2.467 5.499 5.499zm1.237-4.25c0-.709-.576-1.285-1.285-1.285-.71 0-1.286.576-1.286 1.285s.576 1.285 1.286 1.285c.709 0 1.285-.576 1.285-1.285zm1.77-1.775c0-1.368-1.113-2.481-2.481-2.481h-8.974c-1.368 0-2.481 1.113-2.481 2.481v8.974c0 1.368 1.113 2.481 2.481 2.481h8.974c1.368 0 2.481-1.113 2.481-2.481v-8.974z"/>
+    </svg>
+  );
 
-  const resources = [
-    { name: 'Amazon Reinstatement Guide', path: '/blog/amazon-reinstatement-guide' },
-    { name: 'Section 3 Appeals Guide', path: '/blog/section-3-appeals-guide' },
-    { name: 'Video Verification Prep', path: '/blog/video-verification-prep' },
-    { name: 'Account Health Management', path: '/blog/account-health-management' },
-  ];
+  // WhatsApp SVG Icon
+  const WhatsAppIcon = () => (
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-8.062 8.062c0 1.422.372 2.804 1.076 4.032L1.707 22.262l4.247-1.111c1.18.644 2.511.984 3.918.984h.004a8.062 8.062 0 008.062-8.062 8.049 8.049 0 00-2.363-5.703 8.053 8.053 0 00-5.701-2.368"/>
+    </svg>
+  );
 
   return (
     <motion.footer
@@ -42,63 +41,89 @@ const Footer = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
-          <motion.div variants={staggerItem} className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6 touch-target flex items-center gap-2">
-              <svg
-                className="h-14 w-auto"
-                viewBox="0 0 80 80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Blue Dollar Sign (inverted for white on dark) */}
-                <text x="40" y="55" fontSize="60" fontWeight="bold" textAnchor="middle" fill="white" fontFamily="system-ui, -apple-system, sans-serif">$</text>
+          {/* Company Info */}
+          <motion.div variants={staggerItem} className="lg:col-span-1">
+            <h4 className="font-semibold text-lg mb-6">Company</h4>
+            <ul className="space-y-3">
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Home
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  About
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/#services" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Services
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Contact
+                </Link>
+              </motion.li>
+            </ul>
+          </motion.div>
 
-                {/* Green Growth Arrow */}
-                <g transform="translate(50, 25)">
-                  <path d="M0 15 L15 0 L15 8 L25 8 L25 10 L15 10 L15 18 Z" fill="#10B94D" />
-                </g>
-              </svg>
-              <span className="font-bold text-lg leading-none text-white">Selleroot</span>
-            </Link>
-            <p className="text-primary-foreground/70 leading-relaxed text-sm mb-6 pr-4">
-              Professional marketplace consulting for Amazon and Walmart sellers. We help sellers navigate account recovery, compliance challenges, and marketplace growth with transparency and expertise.
-            </p>
+          {/* Amazon Services */}
+          <motion.div variants={staggerItem}>
+            <h4 className="font-semibold text-lg mb-6">Amazon Services</h4>
+            <ul className="space-y-3">
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/amazon-account-reinstatement" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Account Reinstatement
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/section-3-appeals" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Section 3 Appeals
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/related-account-appeals" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Related Account Appeals
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/account-health" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Account Health Support
+                </Link>
+              </motion.li>
+            </ul>
+          </motion.div>
 
-            <div className="flex items-center gap-3 mb-6">
-              <a
-                href="https://www.facebook.com/selleroot"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 touch-target rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/selleroot.hq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 touch-target rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('footer')}
-                className="w-10 h-10 touch-target rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors duration-300"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle className="h-5 w-5" />
-              </a>
-            </div>
+          {/* Walmart Services */}
+          <motion.div variants={staggerItem}>
+            <h4 className="font-semibold text-lg mb-6">Walmart Services</h4>
+            <ul className="space-y-3">
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/walmart-account-reinstatement" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Account Recovery
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/walmart-suspension-appeals" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Suspension Appeals
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ x: 4 }}>
+                <Link to="/services/walmart-compliance-support" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
+                  Compliance Support
+                </Link>
+              </motion.li>
+            </ul>
+          </motion.div>
 
-            <div className="space-y-3 text-sm">
+          {/* Contact & Social */}
+          <motion.div variants={staggerItem} className="lg:col-span-1">
+            <h4 className="font-semibold text-lg mb-6">Contact</h4>
+            <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-secondary flex-shrink-0" />
-                <a href="mailto:info@selleroot.com" className="text-primary-foreground/70 hover:text-white transition-colors">
+                <a href="mailto:info@selleroot.com" className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
                   info@selleroot.com
                 </a>
               </div>
@@ -109,122 +134,72 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick('footer_contact')}
-                  className="text-primary-foreground/70 hover:text-white transition-colors"
+                  className="text-sm text-primary-foreground/70 hover:text-white transition-colors"
                 >
-                  +91 81781 21217
+                  WhatsApp Consultation
                 </a>
               </div>
             </div>
-          </motion.div>
 
-          <motion.div variants={staggerItem}>
-            <h4 className="font-semibold text-lg mb-6">Amazon Services</h4>
-            <ul className="space-y-3">
-              {amazonServices.map((service, i) => (
-                <motion.li key={i} whileHover={{ x: 4 }}>
-                  <Link
-                    to={service.path}
-                    className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1"
-                  >
-                    {service.name}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div variants={staggerItem}>
-            <h4 className="font-semibold text-lg mb-6">Walmart Services</h4>
-            <ul className="space-y-3">
-              {walmartServices.map((service, i) => (
-                <motion.li key={i} whileHover={{ x: 4 }}>
-                  <Link
-                    to={service.path}
-                    className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1"
-                  >
-                    {service.name}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-
-            <h4 className="font-semibold text-lg mb-4 mt-8">Resources</h4>
-            <ul className="space-y-3">
-              {resources.slice(0, 3).map((resource, i) => (
-                <motion.li key={i} whileHover={{ x: 4 }}>
-                  <Link
-                    to={resource.path}
-                    className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1"
-                  >
-                    {resource.name}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div variants={staggerItem}>
-            <h4 className="font-semibold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <motion.li whileHover={{ x: 4 }}>
-                <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
-                  About Selleroot
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 4 }}>
-                <Link to="/blog" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
-                  Resources & Blog
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 4 }}>
-                <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-white transition-colors block py-1">
-                  Contact Us
-                </Link>
-              </motion.li>
-            </ul>
-
-            <div className="mt-8">
-              <CalendlyButton
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-sm font-semibold w-full justify-center"
-                text="Book Free Audit"
-              />
+            {/* Social Icons */}
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.facebook.com/selleroot"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] transition-colors text-white"
+                aria-label="Facebook"
+              >
+                <FacebookIcon />
+              </a>
+              <a
+                href="https://www.instagram.com/selleroot.hq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E4405F] transition-colors text-white"
+                aria-label="Instagram"
+              >
+                <InstagramIcon />
+              </a>
             </div>
           </motion.div>
         </div>
 
-        <motion.div variants={fadeInUp} className="border-t border-white/10 pt-8 mb-6">
-          <div className="bg-white/5 rounded-xl p-4 border border-white/10 mb-6">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-primary-foreground/70 leading-relaxed">
-                <strong className="text-white">Disclaimer:</strong> Selleroot is an independent consulting company and is not affiliated with, endorsed by, or operated by Amazon, Walmart, or any marketplace. We provide professional consulting services to help sellers navigate marketplace policies and compliance requirements.
-              </p>
-            </div>
-          </div>
+        {/* CTA Section */}
+        <motion.div
+          variants={staggerItem}
+          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-12 border border-white/20 text-center"
+        >
+          <h3 className="text-2xl font-bold mb-3">Need Help With Your Account?</h3>
+          <p className="text-primary-foreground/80 mb-6 max-w-2xl mx-auto">
+            Get expert guidance on account recovery, compliance, and marketplace success.
+          </p>
+          <Button
+            asChild
+            className="bg-white text-primary hover:bg-gray-50 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
+          >
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('footer_cta')}
+            >
+              <WhatsAppIcon />
+              Book Free Account Audit
+            </a>
+          </Button>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-foreground/50 text-sm">
-            © {new Date().getFullYear()} Selleroot. All rights reserved.
+        {/* Bottom */}
+        <motion.div variants={staggerItem} className="border-t border-white/10 pt-8 text-center text-sm text-primary-foreground/60">
+          <p>© 2024 Selleroot. All Rights Reserved.</p>
+          <p className="mt-4 max-w-2xl mx-auto leading-relaxed">
+            Selleroot is an independent consulting company and is not affiliated with, endorsed by, or operated by Amazon, Walmart, or any marketplace.
           </p>
-          <div className="flex items-center flex-wrap gap-4 md:gap-6">
-            <Link to="/privacy-policy" className="text-sm text-primary-foreground/50 hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-sm text-primary-foreground/50 hover:text-white transition-colors">
-              Terms & Conditions
-            </Link>
-            <Link to="/cookie-policy" className="text-sm text-primary-foreground/50 hover:text-white transition-colors">
-              Cookie Policy
-            </Link>
-            <Link to="/disclaimer" className="text-sm text-primary-foreground/50 hover:text-white transition-colors">
-              Disclaimer
-            </Link>
-          </div>
         </motion.div>
       </div>
     </motion.footer>
   );
 };
 
-export default React.memo(Footer);
+export default Footer;

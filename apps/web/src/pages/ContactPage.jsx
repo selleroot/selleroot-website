@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, MessageSquare, Shield } from 'lucide-react';
+import { Mail, MessageSquare, Shield, MessageSquare as MessageIcon } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '@/lib/animationVariants.js';
 import { trackFormSubmit, trackWhatsAppClick } from '@/lib/performanceMonitoring.js';
 
@@ -335,11 +335,19 @@ const ContactPage = () => {
                     />
 
                     <Button
-                      type="submit"
+                      asChild
                       className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg py-6 text-lg font-bold"
-                      disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Submitting...' : 'Request Free Account Audit'}
+                      <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackWhatsAppClick('contact_form')}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <MessageSquare className="w-5 h-5" />
+                        Book Free Account Audit
+                      </a>
                     </Button>
                   </form>
                 </Form>

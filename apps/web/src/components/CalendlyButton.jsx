@@ -1,37 +1,37 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import CalendlyModal from './CalendlyModal.jsx';
+import { MessageSquare } from 'lucide-react';
+import { trackWhatsAppClick } from '@/lib/performanceMonitoring.js';
 
 const CalendlyButton = ({
   text = "Book Free Account Audit",
   variant = "default",
   className = "",
-  url,
   size = "lg",
   asChild = false,
   children
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const whatsappLink = `https://wa.me/918178121217?text=${encodeURIComponent('Hi Selleroot, I would like to book a free account audit.')}`;
 
   return (
-    <>
-      <Button 
-        variant={variant} 
-        size={size} 
-        className={`touch-target ${className}`}
-        onClick={() => setIsModalOpen(true)}
-        asChild={asChild}
+    <Button
+      asChild
+      variant={variant}
+      size={size}
+      className={`touch-target ${className}`}
+    >
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackWhatsAppClick('audit_button')}
+        className="flex items-center gap-2"
       >
+        <MessageSquare className="w-4 h-4" />
         {children || text}
-      </Button>
-
-      <CalendlyModal 
-        isOpen={isModalOpen} 
-        onOpenChange={setIsModalOpen} 
-        url={url} 
-      />
-    </>
+      </a>
+    </Button>
   );
 };
 
