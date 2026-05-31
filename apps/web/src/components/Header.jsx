@@ -68,10 +68,12 @@ const Header = () => {
     </svg>
   );
 
-  // Instagram SVG Icon
+  // Instagram SVG Icon - Official Logo
   const InstagramIcon = () => (
-    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 11.965c0 3.032-2.467 5.499-5.499 5.499-3.032 0-5.499-2.467-5.499-5.499 0-3.032 2.467-5.499 5.499-5.499 3.032 0 5.499 2.467 5.499 5.499zm1.237-4.25c0-.709-.576-1.285-1.285-1.285-.71 0-1.286.576-1.286 1.285s.576 1.285 1.286 1.285c.709 0 1.285-.576 1.285-1.285zm1.77-1.775c0-1.368-1.113-2.481-2.481-2.481h-8.974c-1.368 0-2.481 1.113-2.481 2.481v8.974c0 1.368 1.113 2.481 2.481 2.481h8.974c1.368 0 2.481-1.113 2.481-2.481v-8.974z"/>
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
     </svg>
   );
 
@@ -195,8 +197,13 @@ const Header = () => {
                 href="https://www.instagram.com/selleroot.hq"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-pink-50 transition-colors text-[#E4405F] hover:text-[#d63447]"
+                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-instagram-gradient transition-all hover:scale-110 text-foreground/70 hover:text-instagram"
                 aria-label="Instagram"
+                style={{
+                  '--tw-gradient-from': '#F58529',
+                  '--tw-gradient-via': '#DD2A7B',
+                  '--tw-gradient-to': '#515BD4'
+                }}
               >
                 <InstagramIcon />
               </a>
@@ -254,8 +261,11 @@ const Header = () => {
                   href="https://www.instagram.com/selleroot.hq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-pink-50 hover:bg-pink-100 transition-colors text-[#E4405F]"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-instagram-gradient/10 hover:bg-instagram-gradient transition-all hover:scale-110 text-foreground/70 hover:text-white"
                   aria-label="Instagram"
+                  style={{
+                    background: 'linear-gradient(45deg, rgba(245,133,41,0.1), rgba(221,42,123,0.1), rgba(129,52,175,0.1))'
+                  }}
                 >
                   <InstagramIcon />
                 </a>

@@ -15,6 +15,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Instagram gradient colors */
+.hover\:bg-instagram-gradient:hover {
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+}
+
+.hover\:text-instagram:hover {
+  color: #DD2A7B;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
