@@ -1,0 +1,40 @@
+
+import React from 'react';
+import { ShieldAlert, Globe, ChartBar as BarChart3 } from 'lucide-react';
+import ServicePageLayout from './ServicePageLayout.jsx';
+
+const WalmartAccountReinstatementPage = () => {
+  return (
+    <ServicePageLayout
+      title="Walmart Account Reinstatement"
+      description="Professional assistance recovering suspended Walmart Marketplace seller accounts through structured appeals and compliance-focused strategies."
+      icon={ShieldAlert}
+      path="/services/walmart-account-reinstatement"
+      overview="Walmart Marketplace has grown significantly and with it, stricter seller performance standards. When your Walmart seller account is suspended, your business faces immediate disruption. Selleroot provides professional support for Walmart account reinstatement, helping you understand the violation, prepare effective appeals, and demonstrate your commitment to meeting Walmart's seller standards."
+      problemsList={[
+        "High order defect rate exceeding Walmart thresholds",
+        "Late shipment rate violations",
+        "Customer complaint accumulation",
+        "Policy violations including listing discrepancies",
+        "Trust and safety concerns",
+        "Prohibited product listings",
+        "Authentication or verification issues",
+        "Performance metric drops below requirements"
+      ]}
+      howWeHelpList={[
+        { title: "Case Evaluation", desc: "We review your Partner Performance dashboard and suspension notice to understand the specific reasons for action." },
+        { title: "Root Cause Analysis", desc: "We identify the underlying issues that led to your suspension, distinguishing between symptoms and actual causes." },
+        { title: "Appeal Development", desc: "We craft professional appeals following Walmart's preferred structure and requirements." },
+        { title: "Corrective Action Plan", desc: "We help document the systems and processes you've implemented to prevent recurrence." }
+      ]}
+      faqs={[
+        { q: "How does Walmart's suspension process differ from Amazon's?", a: "Walmart has its own seller performance metrics, policies, and appeal processes. While similar principles apply, the specific thresholds, documentation requirements, and appeal channels differ. We understand both platforms and tailor our approach accordingly." },
+        { q: "What are Walmart's key performance metrics?", a: "Walmart monitors Order Defect Rate, Cancellation Rate, Late Shipment Rate, and customer feedback. Specific thresholds vary by seller tier, and performance drops can trigger warnings before suspension." },
+        { q: "How long does Walmart account reinstatement take?", a: "Reinstatement timelines vary based on violation severity and appeal quality. Simple performance metric issues may resolve faster than policy violations. Providing complete documentation upfront speeds the process." },
+        { q: "Can I continue selling during the appeal process?", a: "In most suspension cases, selling privileges are revoked during the review period. Reinstatement requires demonstrating that the issues have been resolved." }
+      ]}
+    />
+  );
+};
+
+export default WalmartAccountReinstatementPage;

@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { pulseAnimation, floatingAnimation } from '@/lib/animationVariants.js';
 import { trackWhatsAppClick } from '@/lib/performanceMonitoring.js';
 
-const FloatingWhatsAppButton = ({ 
-  phoneNumber = '1234567890', 
-  message = 'Hi Selleroot, I need help with my Amazon seller account.' 
+const FloatingWhatsAppButton = ({
+  phoneNumber = '918178121217',
+  message = 'Hi Selleroot, I need help with my Amazon seller account.'
 }) => {
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

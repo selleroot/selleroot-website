@@ -7,7 +7,7 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton.jsx';
-import { Loader2 } from 'lucide-react';
+import { Loader as Loader2 } from 'lucide-react';
 
 // Lazy load pages for code splitting
 const HomePage = lazy(() => import('./pages/HomePage.jsx'));
@@ -15,12 +15,27 @@ const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
 
 // Lazy load services
 const AccountReinstatementPage = lazy(() => import('./pages/services/AccountReinstatementPage.jsx'));
+const AmazonAccountReinstatementPage = lazy(() => import('./pages/services/AmazonAccountReinstatementPage.jsx'));
 const Section3AppealsPage = lazy(() => import('./pages/services/Section3AppealsPage.jsx'));
 const RelatedAccountAppealsPage = lazy(() => import('./pages/services/RelatedAccountAppealsPage.jsx'));
 const VideoVerificationPage = lazy(() => import('./pages/services/VideoVerificationPage.jsx'));
 const FundsReleasePage = lazy(() => import('./pages/services/FundsReleasePage.jsx'));
 const ComplianceDocumentationPage = lazy(() => import('./pages/services/ComplianceDocumentationPage.jsx'));
 const AccountHealthPage = lazy(() => import('./pages/services/AccountHealthPage.jsx'));
+const IPComplaintSupportPage = lazy(() => import('./pages/services/IPComplaintSupportPage.jsx'));
+const ProductAuthenticityAppealsPage = lazy(() => import('./pages/services/ProductAuthenticityAppealsPage.jsx'));
+const ASINReinstatementPage = lazy(() => import('./pages/services/ASINReinstatementPage.jsx'));
+const ListingPolicyViolationsPage = lazy(() => import('./pages/services/ListingPolicyViolationsPage.jsx'));
+const WalmartAccountReinstatementPage = lazy(() => import('./pages/services/WalmartAccountReinstatementPage.jsx'));
+const WalmartSuspensionAppealsPage = lazy(() => import('./pages/services/WalmartSuspensionAppealsPage.jsx'));
+
+// Lazy load other pages
+const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
+const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
+const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage.jsx'));
+const TermsPage = lazy(() => import('./pages/legal/TermsPage.jsx'));
+const CookiePolicyPage = lazy(() => import('./pages/legal/CookiePolicyPage.jsx'));
+const DisclaimerPage = lazy(() => import('./pages/legal/DisclaimerPage.jsx'));
 
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[60vh]">
@@ -41,12 +56,34 @@ const App = () => {
               <Route path="/contact" element={<ContactPage />} />
               
               <Route path="/services/account-reinstatement" element={<AccountReinstatementPage />} />
+              <Route path="/services/amazon-account-reinstatement" element={<AmazonAccountReinstatementPage />} />
+              <Route path="/services/amazon-suspension-appeal" element={<AccountReinstatementPage />} />
+              <Route path="/services/amazon-suspension-help" element={<AccountReinstatementPage />} />
+              <Route path="/services/amazon-suspended-account-help" element={<AccountReinstatementPage />} />
+              <Route path="/services/amazon-appeal-service" element={<AccountReinstatementPage />} />
               <Route path="/services/section-3-appeals" element={<Section3AppealsPage />} />
               <Route path="/services/related-account-appeals" element={<RelatedAccountAppealsPage />} />
               <Route path="/services/video-verification" element={<VideoVerificationPage />} />
               <Route path="/services/funds-release" element={<FundsReleasePage />} />
               <Route path="/services/compliance-documentation" element={<ComplianceDocumentationPage />} />
               <Route path="/services/account-health" element={<AccountHealthPage />} />
+              <Route path="/services/ip-complaint-support" element={<IPComplaintSupportPage />} />
+              <Route path="/services/product-authenticity-appeals" element={<ProductAuthenticityAppealsPage />} />
+              <Route path="/services/asin-reinstatement" element={<ASINReinstatementPage />} />
+              <Route path="/services/listing-policy-violations" element={<ListingPolicyViolationsPage />} />
+              <Route path="/services/walmart-account-reinstatement" element={<WalmartAccountReinstatementPage />} />
+              <Route path="/services/walmart-suspension-appeals" element={<WalmartSuspensionAppealsPage />} />
+              <Route path="/services/walmart-marketplace-recovery" element={<WalmartAccountReinstatementPage />} />
+              <Route path="/services/walmart-compliance-support" element={<WalmartSuspensionAppealsPage />} />
+              <Route path="/services/walmart-performance-review" element={<WalmartSuspensionAppealsPage />} />
+
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/disclaimer" element={<DisclaimerPage />} />
               
               <Route path="*" element={
                 <div className="pt-32 pb-20 text-center min-h-[60vh] flex flex-col items-center justify-center">

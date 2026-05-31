@@ -1,0 +1,40 @@
+
+import React from 'react';
+import { TriangleAlert as AlertTriangle } from 'lucide-react';
+import ServicePageLayout from './ServicePageLayout.jsx';
+
+const ListingPolicyViolationsPage = () => {
+  return (
+    <ServicePageLayout
+      title="Listing Policy Violations"
+      description="Professional support addressing Amazon listing policy violations and preventing account-level consequences."
+      icon={AlertTriangle}
+      path="/services/listing-policy-violations"
+      overview="Listing policy violations can range from minor attribute inaccuracies to serious offenses like misrepresentation or prohibited product sales. Amazon takes these violations seriously, and accumulated infractions can impact your account health and even lead to deactivation. We help sellers understand policy requirements and address violations effectively."
+      problemsList={[
+        "Incorrect product categorization",
+        "Violations of product detail page policies",
+        "Misleading product descriptions or claims",
+        "Prohibited product listings",
+        "Improper use of variations or bundles",
+        "Price gouging allegations",
+        "Image policy violations",
+        "Duplication of existing listings"
+      ]}
+      howWeHelpList={[
+        { title: "Violation Assessment", desc: "We analyze the specific policy violation to understand the infraction and identify the correct corrective actions." },
+        { title: "Policy Education", desc: "We explain Amazon's policies in plain language so you understand what went wrong and how to comply going forward." },
+        { title: "Corrective Action Plan", desc: "We help develop and document the specific changes needed to bring your listings into full compliance." },
+        { title: "Preventive Strategies", desc: "We establish listing review processes to catch potential violations before Amazon does." }
+      ]}
+      faqs={[
+        { q: "What happens if I ignore a listing policy violation?", a: "Ignoring violations can lead to listing removals, account health score degradation, and ultimately account deactivation. Amazon's systems track patterns of non-compliance." },
+        { q: "Can listing violations be appealed?", a: "Many listing violations can be appealed, but you must first fix the underlying issue and demonstrate that corrective actions have been taken." },
+        { q: "How do I know which policy I violated?", a: "Review your Account Health Dashboard for specific policy violation details. Amazon typically provides the policy section and explanation for each infraction." },
+        { q: "Will listing violations stay on my record permanently?", a: "Policy violations remain visible on your account health record for extended periods, but their impact on your account health score typically diminishes over time if you maintain good standing." }
+      ]}
+    />
+  );
+};
+
+export default ListingPolicyViolationsPage;

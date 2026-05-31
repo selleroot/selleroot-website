@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MapPin, MessageSquare, ShieldCheck, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, ShieldCheck, Loader as Loader2 } from 'lucide-react';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animationVariants.js';
 import CalendlyButton from '@/components/CalendlyButton.jsx';
 import { trackFormSubmit, trackWhatsAppClick } from '@/lib/performanceMonitoring.js';
@@ -20,6 +20,7 @@ const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Invalid email address'),
   phone: z.string().min(10, 'Valid phone number is required'),
+  marketplace: z.string().min(1, 'Please select a marketplace'),
   issueType: z.string().min(1, 'Please select your primary issue'),
   message: z.string().min(20, 'Please provide more details about your situation'),
 });
@@ -34,11 +35,14 @@ const ContactPage = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
+    defaultValues: {
       name: savedState.name || '',
       email: savedState.email || '',
       phone: savedState.phone || '',
+      marketplace: savedState.marketplace || '',
       issueType: savedState.issueType || '',
       message: savedState.message || '',
+    },
     },
   });
 
@@ -84,7 +88,7 @@ const ContactPage = () => {
   };
 
   const whatsappMessage = encodeURIComponent('Hi Selleroot, I would like to schedule a consultation.');
-  const whatsappLink = `https://wa.me/1234567890?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/918178121217?text=${whatsappMessage}`;
 
   return (
     <>
