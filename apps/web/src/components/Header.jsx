@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Menu, MessageSquare, Notebook as Facebook, Drama as Instagram, ChevronDown } from 'lucide-react';
+import { Menu, MessageSquare, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
@@ -8,7 +7,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
@@ -64,6 +62,27 @@ const Header = () => {
 
   const whatsappLink = `https://wa.me/918178121217?text=${encodeURIComponent('Hi Selleroot, I need help with my account.')}`;
 
+  // Facebook SVG Icon
+  const FacebookIcon = () => (
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+  );
+
+  // Instagram SVG Icon
+  const InstagramIcon = () => (
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 11.965c0 3.032-2.467 5.499-5.499 5.499-3.032 0-5.499-2.467-5.499-5.499 0-3.032 2.467-5.499 5.499-5.499 3.032 0 5.499 2.467 5.499 5.499zm1.237-4.25c0-.709-.576-1.285-1.285-1.285-.71 0-1.286.576-1.286 1.285s.576 1.285 1.286 1.285c.709 0 1.285-.576 1.285-1.285zm1.77-1.775c0-1.368-1.113-2.481-2.481-2.481h-8.974c-1.368 0-2.481 1.113-2.481 2.481v8.974c0 1.368 1.113 2.481 2.481 2.481h8.974c1.368 0 2.481-1.113 2.481-2.481v-8.974z"/>
+    </svg>
+  );
+
+  // WhatsApp SVG Icon
+  const WhatsAppIcon = () => (
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-8.062 8.062c0 1.422.372 2.804 1.076 4.032L1.707 22.262l4.247-1.111c1.18.644 2.511.984 3.918.984h.004a8.062 8.062 0 008.062-8.062 8.049 8.049 0 00-2.363-5.703 8.053 8.053 0 00-5.701-2.368"/>
+    </svg>
+  );
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -74,32 +93,17 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Brand Logo */}
           <Link
             to="/"
             onClick={() => handleNavClick('/')}
-            className="flex-shrink-0 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg"
+            className="flex-shrink-0 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg"
             aria-label="Selleroot - Professional Marketplace Consulting"
             title="Selleroot"
           >
-            {/* Logo SVG */}
-            <svg
-              className="h-12 sm:h-14 w-auto"
-              viewBox="0 0 80 80"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Blue Dollar Sign */}
-              <text x="40" y="55" fontSize="60" fontWeight="bold" textAnchor="middle" fill="#0A2D6F" fontFamily="system-ui, -apple-system, sans-serif">$</text>
-
-              {/* Green Growth Arrow */}
-              <g transform="translate(50, 25)">
-                <path d="M0 15 L15 0 L15 8 L25 8 L25 10 L15 10 L15 18 Z" fill="#10B94D" />
-              </g>
-            </svg>
-            <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-lg leading-none text-foreground">Selleroot</span>
-              <span className="text-xs font-medium text-primary uppercase tracking-wider">Recover. Scale. Automate.</span>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl leading-tight text-foreground">Selleroot</span>
+              <span className="text-xs font-medium text-primary uppercase tracking-widest">Recover. Scale. Automate.</span>
             </div>
           </Link>
 
@@ -110,10 +114,10 @@ const Header = () => {
                 <Link
                   to={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center ${
+                  className={`px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
                     location.pathname === link.path
                       ? 'text-primary bg-primary/10'
-                      : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                      : 'text-foreground/70 hover:text-primary hover:bg-primary/5'
                   }`}
                 >
                   {link.label}
@@ -125,14 +129,14 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="px-4 py-2.5 bg-transparent hover:bg-primary/5 text-foreground/80 hover:text-primary font-semibold rounded-lg data-[state=open]:bg-primary/5 data-[state=open]:text-primary">
+                  <NavigationMenuTrigger className="px-4 py-2.5 bg-transparent hover:bg-primary/5 text-foreground/70 hover:text-primary font-semibold rounded-lg data-[state=open]:bg-primary/5 data-[state=open]:text-primary">
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[600px] p-6 bg-white rounded-xl shadow-2xl border border-gray-100">
                       <div className="grid grid-cols-2 gap-8">
                         <div>
-                          <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wider flex items-center gap-2">
+                          <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-wider flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-orange-500"></span>
                             Amazon Services
                           </h3>
@@ -150,7 +154,7 @@ const Header = () => {
                           </ul>
                         </div>
                         <div>
-                          <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wider flex items-center gap-2">
+                          <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-wider flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                             Walmart Services
                           </h3>
@@ -176,26 +180,26 @@ const Header = () => {
           </nav>
 
           {/* Desktop Right Side - Social Icons and CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             {/* Social Icons */}
-            <div className="flex items-center gap-1.5 pr-2 border-r border-gray-200">
+            <div className="flex items-center gap-2 pr-3 border-r border-gray-200">
               <a
                 href="https://www.facebook.com/selleroot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-primary/10 transition-colors text-primary hover:text-primary/80"
+                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-blue-50 transition-colors text-[#1877F2] hover:text-[#0a66c2]"
                 aria-label="Facebook"
               >
-                <Facebook className="w-4 h-4" />
+                <FacebookIcon />
               </a>
               <a
                 href="https://www.instagram.com/selleroot.hq"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-primary/10 transition-colors text-primary hover:text-primary/80"
+                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-pink-50 transition-colors text-[#E4405F] hover:text-[#d63447]"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <InstagramIcon />
               </a>
             </div>
 
@@ -203,15 +207,16 @@ const Header = () => {
             <motion.div variants={buttonHover} initial="rest" whileHover="hover" whileTap="tap">
               <Button
                 asChild
-                className="bg-[#25D366] text-white hover:bg-[#1da851] rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+                className="bg-[#25D366] text-white hover:bg-[#1da851] rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105"
               >
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick('header_cta')}
+                  className="flex items-center gap-2"
                 >
-                  <MessageSquare className="w-4 h-4 mr-2" />
+                  <WhatsAppIcon />
                   Chat on WhatsApp
                 </a>
               </Button>
@@ -236,34 +241,34 @@ const Header = () => {
               </SheetHeader>
 
               {/* Mobile Social Icons */}
-              <div className="flex items-center gap-2 mt-6 mb-6 justify-center pb-6 border-b border-gray-200">
+              <div className="flex items-center gap-3 mt-6 mb-6 justify-center pb-6 border-b border-gray-200">
                 <a
                   href="https://www.facebook.com/selleroot"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10 hover:bg-primary/20 transition-colors text-primary"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-50 hover:bg-blue-100 transition-colors text-[#1877F2]"
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <FacebookIcon />
                 </a>
                 <a
                   href="https://www.instagram.com/selleroot.hq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10 hover:bg-primary/20 transition-colors text-primary"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-pink-50 hover:bg-pink-100 transition-colors text-[#E4405F]"
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <InstagramIcon />
                 </a>
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick('mobile_header')}
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors text-[#25D366]"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-green-50 hover:bg-green-100 transition-colors text-[#25D366]"
                   aria-label="WhatsApp"
                 >
-                  <MessageSquare className="w-5 h-5" />
+                  <WhatsAppIcon />
                 </a>
               </div>
 
