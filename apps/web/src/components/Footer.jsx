@@ -45,9 +45,9 @@ const Footer = () => {
           <motion.div variants={staggerItem} className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6 touch-target flex items-center">
               <OptimizedImage
-                src="https://horizons-cdn.hostinger.com/b4833c16-8b03-4363-96fb-f8b7820bfb14/9135cab417c9268889cd0f43fb4fac2b.png"
+                src="/SELLEROOTLOGO_copytp.png"
                 alt="Selleroot Logo"
-                className="h-12 w-auto brightness-0 invert bg-transparent object-contain"
+                className="h-16 w-auto bg-transparent object-contain"
               />
             </Link>
             <p className="text-primary-foreground/70 leading-relaxed text-sm mb-6 pr-4">

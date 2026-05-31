@@ -5,12 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Accordion } from '@/components/ui/accordion';
-import { 
-  ShieldCheck, FileText, UserCheck, Scale, Globe2,
-  AlertOctagon, Users, DollarSign, Video, CheckCircle2,
-  Search, Shield, Briefcase, Activity, Target,
-  Lock, MessageSquare
-} from 'lucide-react';
+import { ShieldCheck, FileText, UserCheck, Scale, Globe as Globe2, OctagonAlert as AlertOctagon, Users, DollarSign, Video, CircleCheck as CheckCircle2, Search, Shield, Briefcase, Activity, Target, Lock, MessageSquare } from 'lucide-react';
 import { useSchema } from '@/hooks/useSchema.js';
 import { fadeInUp, staggerContainer, staggerItem, buttonHover } from '@/lib/animationVariants.js';
 import { trackWhatsAppClick } from '@/lib/performanceMonitoring.js';
@@ -28,7 +23,7 @@ const HomePage = () => {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   
   const whatsappMessage = encodeURIComponent('Hi Selleroot, I need help with my Amazon seller account.');
-  const whatsappLink = `https://wa.me/1234567890?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/918178121217?text=${whatsappMessage}`;
 
   return (
     <>
@@ -62,13 +57,13 @@ const HomePage = () => {
             >
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-semibold mb-8 border border-white/20">
                 <ShieldCheck className="w-4 h-4 text-secondary" />
-                Trusted by 500+ Amazon Sellers Globally
+                Professional Marketplace Consulting
               </motion.div>
               <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 text-balance leading-[1.1]" style={{ letterSpacing: '-0.02em' }}>
                 Recover. Scale. Automate.
               </motion.h1>
               <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
-                Helping Online Sellers Navigate Account Recovery, Compliance Challenges, and Marketplace Success.
+                Professional Marketplace Recovery & Compliance Support For Amazon And Walmart Sellers.
               </motion.p>
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.div variants={buttonHover} initial="rest" whileHover="hover" whileTap="tap" className="w-full sm:w-auto">

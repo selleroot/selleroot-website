@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, MessageSquare, Facebook, Instagram, Mail, ChevronDown } from 'lucide-react';
+import { Menu, MessageSquare, Notebook as Facebook, Drama as Instagram, Mail, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
@@ -100,8 +100,8 @@ const Header = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <OptimizedImage
-                src="https://horizons-cdn.hostinger.com/b4833c16-8b03-4363-96fb-f8b7820bfb14/9135cab417c9268889cd0f43fb4fac2b.png"
-                alt="Selleroot - Amazon Seller Recovery & Compliance Services"
+                src="/SELLEROOTLOGO_copytp.png"
+                alt="Selleroot - Professional Marketplace Consulting"
                 className="h-16 sm:h-20 w-auto bg-transparent object-contain transition-opacity duration-300 group-hover:opacity-90"
                 priority={true}
                 aspectRatio="auto"

@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import CalendlyModal from './CalendlyModal.jsx';
 
-const CalendlyButton = ({ 
-  text = "Book Consultation", 
-  variant = "default", 
-  className = "", 
+const CalendlyButton = ({
+  text = "Book Free Account Audit",
+  variant = "default",
+  className = "",
   url,
   size = "lg",
   asChild = false,
